@@ -7,4 +7,8 @@
     <string name="appetizers">appetizers</string>
     <string name="pasta">pasta</string>
     <string name="offers">Offers</string>
+    <string name="pan_pizza">Pan Pizza</string>
+    <string name="cheesy_bites">Cheesy Bites</string>
+    <string name="sausage_crust">Sausage Crust</string>
+    <string name="thin_n_crust">Thin N Crust</string>
 </resources>

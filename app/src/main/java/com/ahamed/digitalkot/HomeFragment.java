@@ -51,9 +51,12 @@ public class HomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         FragmentHomeBinding binding = FragmentHomeBinding.inflate(inflater, container, false);
+
         AppCompatActivity appCompatActivity = (AppCompatActivity) getActivity();
         assert appCompatActivity != null;
         appCompatActivity.setSupportActionBar(binding.idToolbar);
+
+
         return binding.getRoot();
     }
 }

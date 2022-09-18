@@ -9,9 +9,14 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="5dp"
         android:orientation="vertical"
         tools:context=".SettingFragment">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/id_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/purple_500" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -25,7 +30,7 @@
                 android:layout_height="100dp"
                 android:layout_margin="2.5dp"
                 android:layout_weight="1"
-                android:background="@color/purple_500"
+                android:background="#F3CC8D"
                 android:orientation="horizontal">
 
                 <TextView
@@ -34,9 +39,8 @@
                     android:layout_margin="8dp"
                     android:text="@string/pizza"
                     android:textAllCaps="true"
-                    android:textColor="@color/red"
-                    android:textSize="22sp"
-                    android:textStyle="bold" />
+                    android:textColor="@color/black"
+                    android:textSize="18sp" />
             </FrameLayout>
 
             <FrameLayout
@@ -45,7 +49,7 @@
                 android:layout_height="100dp"
                 android:layout_margin="2.5dp"
                 android:layout_weight="1"
-                android:background="@color/purple_700">
+                android:background="#86EF8B">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -53,9 +57,8 @@
                     android:layout_margin="8dp"
                     android:text="drinks"
                     android:textAllCaps="true"
-                    android:textColor="@color/red"
-                    android:textSize="22sp"
-                    android:textStyle="bold" />
+                    android:textColor="@color/black"
+                    android:textSize="18sp" />
             </FrameLayout>
 
         </LinearLayout>
@@ -72,7 +75,7 @@
                 android:layout_height="100dp"
                 android:layout_margin="2.5dp"
                 android:layout_weight="1"
-                android:background="@color/purple_700">
+                android:background="#9EF4FB">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -80,9 +83,8 @@
                     android:layout_margin="8dp"
                     android:text="@string/appetizers"
                     android:textAllCaps="true"
-                    android:textColor="@color/red"
-                    android:textSize="22sp"
-                    android:textStyle="bold" />
+                    android:textColor="@color/black"
+                    android:textSize="18sp" />
             </FrameLayout>
 
             <FrameLayout
@@ -91,7 +93,7 @@
                 android:layout_height="100dp"
                 android:layout_margin="2.5dp"
                 android:layout_weight="1"
-                android:background="@color/purple_500">
+                android:background="#FFACAC">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -99,9 +101,8 @@
                     android:layout_margin="8dp"
                     android:text="@string/offers"
                     android:textAllCaps="true"
-                    android:textColor="@color/red"
-                    android:textSize="22sp"
-                    android:textStyle="bold" />
+                    android:textColor="@color/black"
+                    android:textSize="18sp" />
             </FrameLayout>
 
         </LinearLayout>
