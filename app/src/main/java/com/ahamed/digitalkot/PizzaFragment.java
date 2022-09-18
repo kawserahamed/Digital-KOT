@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 
 import com.ahamed.digitalkot.databinding.FragmentPizzaBinding;
 
@@ -34,6 +35,8 @@ public class PizzaFragment extends Fragment {
         assert appCompatActivity != null;
         appCompatActivity.setSupportActionBar(binding.idToolbar);
         Objects.requireNonNull(appCompatActivity.getSupportActionBar()).setTitle("Pizza Settings");
+
+        binding.tvPan.setOnClickListener(view -> Navigation.findNavController(view).navigate(R.id.pizzaToPan));
 
 
         return binding.getRoot();
