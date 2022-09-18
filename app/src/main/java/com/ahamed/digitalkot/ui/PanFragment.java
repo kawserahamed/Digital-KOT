@@ -1,4 +1,4 @@
-package com.ahamed.digitalkot;
+package com.ahamed.digitalkot.ui;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,6 +10,7 @@ import android.widget.EditText;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 
+import com.ahamed.digitalkot.R;
 import com.ahamed.digitalkot.databinding.FragmentPanBinding;
 
 

@@ -1,4 +1,4 @@
-package com.ahamed.digitalkot;
+package com.ahamed.digitalkot.ui;
 
 import android.os.Bundle;
 
@@ -8,12 +8,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.ahamed.digitalkot.R;
+
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link DrinksFragment#newInstance} factory method to
+ * Use the {@link AppetizersFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class DrinksFragment extends Fragment {
+public class AppetizersFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -24,7 +26,7 @@ public class DrinksFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public DrinksFragment() {
+    public AppetizersFragment() {
         // Required empty public constructor
     }
 
@@ -34,11 +36,11 @@ public class DrinksFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment DrinksFragment.
+     * @return A new instance of fragment AppetizersFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static DrinksFragment newInstance(String param1, String param2) {
-        DrinksFragment fragment = new DrinksFragment();
+    public static AppetizersFragment newInstance(String param1, String param2) {
+        AppetizersFragment fragment = new AppetizersFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -59,6 +61,6 @@ public class DrinksFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_drinks, container, false);
+        return inflater.inflate(R.layout.fragment_appetizers, container, false);
     }
 }

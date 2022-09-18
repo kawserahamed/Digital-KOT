@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.ahamed.digitalkot.HomeFragment"
+        android:name="com.ahamed.digitalkot.ui.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" >
         <action
@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/settingFragment"
-        android:name="com.ahamed.digitalkot.SettingFragment"
+        android:name="com.ahamed.digitalkot.ui.SettingFragment"
         android:label="fragment_setting"
         tools:layout="@layout/fragment_setting" >
         <action
@@ -34,12 +34,12 @@
     </fragment>
     <fragment
         android:id="@+id/appetizersFragment"
-        android:name="com.ahamed.digitalkot.AppetizersFragment"
+        android:name="com.ahamed.digitalkot.ui.AppetizersFragment"
         android:label="fragment_appetizers"
         tools:layout="@layout/fragment_appetizers" />
     <fragment
         android:id="@+id/pizzaFragment"
-        android:name="com.ahamed.digitalkot.PizzaFragment"
+        android:name="com.ahamed.digitalkot.ui.PizzaFragment"
         android:label="fragment_pizza"
         tools:layout="@layout/fragment_pizza" >
         <action
@@ -48,17 +48,17 @@
     </fragment>
     <fragment
         android:id="@+id/drinksFragment"
-        android:name="com.ahamed.digitalkot.DrinksFragment"
+        android:name="com.ahamed.digitalkot.ui.DrinksFragment"
         android:label="fragment_drinks"
         tools:layout="@layout/fragment_drinks" />
     <fragment
         android:id="@+id/offerFragment"
-        android:name="com.ahamed.digitalkot.OfferFragment"
+        android:name="com.ahamed.digitalkot.ui.OfferFragment"
         android:label="fragment_offer"
         tools:layout="@layout/fragment_offer" />
     <fragment
         android:id="@+id/panFragment"
-        android:name="com.ahamed.digitalkot.PanFragment"
+        android:name="com.ahamed.digitalkot.ui.PanFragment"
         android:label="fragment_pan"
         tools:layout="@layout/fragment_pan" />
 </navigation>

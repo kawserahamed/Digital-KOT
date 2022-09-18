@@ -1,4 +1,4 @@
-package com.ahamed.digitalkot;
+package com.ahamed.digitalkot.ui;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
@@ -15,6 +15,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
+import com.ahamed.digitalkot.R;
 import com.ahamed.digitalkot.databinding.FragmentHomeBinding;
 
 

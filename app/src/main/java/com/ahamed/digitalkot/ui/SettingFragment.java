@@ -1,4 +1,4 @@
-package com.ahamed.digitalkot;
+package com.ahamed.digitalkot.ui;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
+import com.ahamed.digitalkot.R;
 import com.ahamed.digitalkot.databinding.FragmentSettingBinding;
 
 import java.util.Objects;
