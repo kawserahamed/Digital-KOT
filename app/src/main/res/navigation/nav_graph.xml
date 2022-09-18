@@ -41,7 +41,11 @@
         android:id="@+id/pizzaFragment"
         android:name="com.ahamed.digitalkot.PizzaFragment"
         android:label="fragment_pizza"
-        tools:layout="@layout/fragment_pizza" />
+        tools:layout="@layout/fragment_pizza" >
+        <action
+            android:id="@+id/pizzaToPan"
+            app:destination="@id/panFragment" />
+    </fragment>
     <fragment
         android:id="@+id/drinksFragment"
         android:name="com.ahamed.digitalkot.DrinksFragment"
@@ -52,4 +56,9 @@
         android:name="com.ahamed.digitalkot.OfferFragment"
         android:label="fragment_offer"
         tools:layout="@layout/fragment_offer" />
+    <fragment
+        android:id="@+id/panFragment"
+        android:name="com.ahamed.digitalkot.PanFragment"
+        android:label="fragment_pan"
+        tools:layout="@layout/fragment_pan" />
 </navigation>

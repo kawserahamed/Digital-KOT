@@ -11,4 +11,10 @@
     <string name="cheesy_bites">Cheesy Bites</string>
     <string name="sausage_crust">Sausage Crust</string>
     <string name="thin_n_crust">Thin N Crust</string>
+    <string name="add_pizza">Add pizza</string>
+    <string name="type_item_name">Type item name</string>
+    <string name="personal">Personal</string>
+    <string name="medium">Medium</string>
+    <string name="family">Family</string>
+    <string name="type_price">Type Price</string>
 </resources>
