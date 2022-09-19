@@ -22,4 +22,8 @@
     <string name="bbq_temptation">BBQ Temptation</string>
     <string name="_429">429</string>
     <string name="all_pan_pizza">All Pan Pizza</string>
+    <string name="pl">PL</string>
+    <string name="md">MD</string>
+    <string name="fm">FM</string>
+    <string name="pizza_name">Pizza Name</string>
 </resources>
