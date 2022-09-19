@@ -36,12 +36,13 @@ public class PanFragment extends Fragment {
         AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
         View dialogView = getLayoutInflater().inflate(R.layout.dailog_add_pizza, null);
         builder.setView(dialogView);
-        builder.setTitle("Enter your item");
+       // builder.setTitle("Enter your Item");
         alertDialog = builder.create();
 
         binding.btnAdd.setOnClickListener(view -> alertDialog.show());
 
         Button submit = dialogView.findViewById(R.id.btn_ok);
+        Button cancel = dialogView.findViewById(R.id.btn_cancel);
         EditText name = dialogView.findViewById(R.id.tv_item_name);
         EditText ed_personal = dialogView.findViewById(R.id.tv_personal_price);
         EditText ed_medium = dialogView.findViewById(R.id.tv_medium_price);
@@ -49,10 +50,20 @@ public class PanFragment extends Fragment {
 
         submit.setOnClickListener(view -> {
             String itemName = name.getText().toString();
-            float personal = Float.parseFloat(ed_personal.getText().toString());
-            float medium = Float.parseFloat(ed_medium.getText().toString());
-            float family = Float.parseFloat(ed_family.getText().toString());
+            int personal = Integer.parseInt(ed_personal.getText().toString());
+            int medium = Integer.parseInt(ed_medium.getText().toString());
+            int family = Integer.parseInt(ed_family.getText().toString());
 
+            alertDialog.dismiss();
+
+            name.setText(null);
+            ed_personal.setText(null);
+            ed_medium.setText(null);
+            ed_family.setText(null);
+
+        });
+
+        cancel.setOnClickListener(view -> {
             alertDialog.dismiss();
 
             name.setText(null);
