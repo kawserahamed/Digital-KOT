@@ -1,6 +1,8 @@
 package com.ahamed.digitalkot.ui;
 
 import android.os.Bundle;
+import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -36,7 +38,7 @@ public class PanFragment extends Fragment {
         AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
         View dialogView = getLayoutInflater().inflate(R.layout.dailog_add_pizza, null);
         builder.setView(dialogView);
-       // builder.setTitle("Enter your Item");
+        // builder.setTitle("Enter your Item");
         alertDialog = builder.create();
 
         binding.btnAdd.setOnClickListener(view -> alertDialog.show());
@@ -49,32 +51,56 @@ public class PanFragment extends Fragment {
         EditText ed_family = dialogView.findViewById(R.id.tv_family_price);
 
         submit.setOnClickListener(view -> {
+            int personal;
+            int medium;
+            int family;
+
             String itemName = name.getText().toString();
-            int personal = Integer.parseInt(ed_personal.getText().toString());
-            int medium = Integer.parseInt(ed_medium.getText().toString());
-            int family = Integer.parseInt(ed_family.getText().toString());
+            if (TextUtils.isEmpty(itemName)) {
+                name.setError("Can't be empty");
+                return;
+            }
+
+            if (TextUtils.isEmpty(ed_personal.getText())) {
+                personal = 0;
+            } else {
+                personal = Integer.parseInt(ed_personal.getText().toString());
+            }
+
+            if (TextUtils.isEmpty(ed_medium.getText())) {
+                medium = 0;
+            } else {
+                medium = Integer.parseInt(ed_medium.getText().toString());
+            }
+
+            if (TextUtils.isEmpty(ed_family.getText())) {
+                family = 0;
+            } else {
+                family = Integer.parseInt(ed_family.getText().toString());
+            }
 
             alertDialog.dismiss();
-
+            dataSend(itemName, personal, medium, family);
             name.setText(null);
+            name.setError(null);
             ed_personal.setText(null);
             ed_medium.setText(null);
             ed_family.setText(null);
-
         });
 
         cancel.setOnClickListener(view -> {
             alertDialog.dismiss();
-
             name.setText(null);
+            name.setError(null);
             ed_personal.setText(null);
             ed_medium.setText(null);
             ed_family.setText(null);
-
         });
-
-
         return binding.getRoot();
+    }
+
+    private void dataSend(String itemName, int personal, int medium, int family) {
+        Log.d("TAG", "dataSend: " + itemName + personal + medium + family);
     }
 
 
