@@ -11,7 +11,7 @@
     <string name="cheesy_bites">Cheesy Bites</string>
     <string name="sausage_crust">Sausage Crust</string>
     <string name="thin_n_crust">Thin N Crust</string>
-    <string name="add_pizza">Add pizza</string>
+    <string name="add_pizza">Add New</string>
     <string name="type_item_name">Type Item Name</string>
     <string name="personal">Personal</string>
     <string name="medium">Medium</string>
@@ -19,4 +19,7 @@
     <string name="type_price">Type Price</string>
     <string name="submit">Submit</string>
     <string name="cancel">Cancel</string>
+    <string name="bbq_temptation">BBQ Temptation</string>
+    <string name="_429">429</string>
+    <string name="all_pan_pizza">All Pan Pizza</string>
 </resources>

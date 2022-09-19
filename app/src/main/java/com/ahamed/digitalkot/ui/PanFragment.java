@@ -8,25 +8,29 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.ahamed.digitalkot.R;
+import com.ahamed.digitalkot.adapter.PanAdapter;
+import com.ahamed.digitalkot.adapter.PanPizzaAdapter;
 import com.ahamed.digitalkot.databinding.FragmentPanBinding;
+import com.ahamed.digitalkot.entites.Pan;
+import com.ahamed.digitalkot.viewmodel.PanViewModel;
 
 
 public class PanFragment extends Fragment {
-    AlertDialog alertDialog;
+    private AlertDialog alertDialog;
+    private PanViewModel viewModel;
+    private PanPizzaAdapter adapter;
+    private PanAdapter panAdapter;
 
     public PanFragment() {
         // Required empty public constructor
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
     }
 
     @Override
@@ -38,10 +42,11 @@ public class PanFragment extends Fragment {
         AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
         View dialogView = getLayoutInflater().inflate(R.layout.dailog_add_pizza, null);
         builder.setView(dialogView);
-        // builder.setTitle("Enter your Item");
         alertDialog = builder.create();
 
+
         binding.btnAdd.setOnClickListener(view -> alertDialog.show());
+
 
         Button submit = dialogView.findViewById(R.id.btn_ok);
         Button cancel = dialogView.findViewById(R.id.btn_cancel);
@@ -49,6 +54,17 @@ public class PanFragment extends Fragment {
         EditText ed_personal = dialogView.findViewById(R.id.tv_personal_price);
         EditText ed_medium = dialogView.findViewById(R.id.tv_medium_price);
         EditText ed_family = dialogView.findViewById(R.id.tv_family_price);
+
+
+        binding.rvAllPan.setLayoutManager(new LinearLayoutManager(getActivity()));
+        viewModel = new ViewModelProvider(requireActivity()).get(PanViewModel.class);
+        viewModel.getAllPanPizza().observe(getViewLifecycleOwner(), pans -> {
+            //adapter = new PanPizzaAdapter(pans);
+            panAdapter = new PanAdapter(pans);
+            Log.d("TAG", "onCreateView: " + pans.size());
+        });
+
+        binding.rvAllPan.setAdapter(panAdapter);
 
         submit.setOnClickListener(view -> {
             int personal;
@@ -87,7 +103,6 @@ public class PanFragment extends Fragment {
             ed_medium.setText(null);
             ed_family.setText(null);
         });
-
         cancel.setOnClickListener(view -> {
             alertDialog.dismiss();
             name.setText(null);
@@ -96,11 +111,16 @@ public class PanFragment extends Fragment {
             ed_medium.setText(null);
             ed_family.setText(null);
         });
+
         return binding.getRoot();
     }
 
+
     private void dataSend(String itemName, int personal, int medium, int family) {
+        Pan panPizza = new Pan(itemName, personal, medium, family);
         Log.d("TAG", "dataSend: " + itemName + personal + medium + family);
+        viewModel.addPan(panPizza);
+        Toast.makeText(getActivity(), "Item Added", Toast.LENGTH_SHORT).show();
     }
 
 
