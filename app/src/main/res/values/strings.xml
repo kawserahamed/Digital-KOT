@@ -26,4 +26,5 @@
     <string name="md">MD</string>
     <string name="fm">FM</string>
     <string name="pizza_name">Pizza Name</string>
+    <string name="delete">Delete</string>
 </resources>

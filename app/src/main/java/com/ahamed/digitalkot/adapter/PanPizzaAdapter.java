@@ -2,6 +2,7 @@ package com.ahamed.digitalkot.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
@@ -48,6 +49,11 @@ public class PanPizzaAdapter extends RecyclerView.Adapter<PanPizzaAdapter.PanPiz
         public PanPizzaViewHolder(@NonNull LayoutItemPanBinding binding) {
             super(binding.getRoot());
             this.binding = binding;
+           this.binding.btnMore.setOnClickListener(view -> {
+
+
+
+           });
         }
 
         public void bind(Pan panPizza) {
