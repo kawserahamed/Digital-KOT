@@ -20,20 +20,23 @@ import com.ahamed.digitalkot.R;
 import com.ahamed.digitalkot.adapter.PanPizzaAdapter;
 import com.ahamed.digitalkot.databinding.FragmentPanBinding;
 import com.ahamed.digitalkot.entites.Pan;
+import com.ahamed.digitalkot.listener.PizzaListener;
 import com.ahamed.digitalkot.viewmodel.PanViewModel;
 
 import java.util.ArrayList;
 import java.util.List;
 
 
-public class PanFragment extends Fragment {
+public class PanFragment extends Fragment implements PizzaListener {
     AlertDialog alertDialog;
     PanViewModel viewModel;
     PanPizzaAdapter adapter;
     List<Pan> pizzaList;
+
     public PanFragment() {
         // Required empty public constructor
     }
+
     @SuppressLint("NotifyDataSetChanged")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -57,7 +60,7 @@ public class PanFragment extends Fragment {
         EditText ed_family = dialogView.findViewById(R.id.tv_family_price);
 
         binding.rvAllPan.setLayoutManager(new LinearLayoutManager(getActivity()));
-        adapter = new PanPizzaAdapter(pizzaList);
+        adapter = new PanPizzaAdapter(pizzaList, this);
         binding.rvAllPan.setAdapter(adapter);
 
         viewModel = new ViewModelProvider(requireActivity()).get(PanViewModel.class);
@@ -120,5 +123,10 @@ public class PanFragment extends Fragment {
         Log.d("TAG", "dataSend: " + itemName + personal + medium + family);
         viewModel.addPan(panPizza);
         Toast.makeText(getActivity(), "Item Added", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void actionListener(Pan pan) {
+        viewModel.deletePan(pan);
     }
 }
