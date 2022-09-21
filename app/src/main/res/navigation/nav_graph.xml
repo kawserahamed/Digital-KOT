@@ -45,6 +45,9 @@
         <action
             android:id="@+id/pizzaToPan"
             app:destination="@id/panFragment" />
+        <action
+            android:id="@+id/pizzaToCb"
+            app:destination="@id/cheesyBitesFragment" />
     </fragment>
     <fragment
         android:id="@+id/drinksFragment"
@@ -61,4 +64,9 @@
         android:name="com.ahamed.digitalkot.ui.PanFragment"
         android:label="fragment_pan"
         tools:layout="@layout/fragment_pan" />
+    <fragment
+        android:id="@+id/cheesyBitesFragment"
+        android:name="com.ahamed.digitalkot.ui.CheesyBitesFragment"
+        android:label="fragment_cheesy_bites"
+        tools:layout="@layout/fragment_cheesy_bites" />
 </navigation>

@@ -12,7 +12,7 @@
     <string name="sausage_crust">Sausage Crust</string>
     <string name="thin_n_crust">Thin N Crust</string>
     <string name="add_pizza">Add New</string>
-    <string name="type_item_name">Type Item Name</string>
+    <string name="type_item_name">Type new Pan pizza name</string>
     <string name="personal">Personal</string>
     <string name="medium">Medium</string>
     <string name="family">Family</string>
@@ -27,4 +27,6 @@
     <string name="fm">FM</string>
     <string name="pizza_name">Pizza Name</string>
     <string name="delete">Delete</string>
+    <string name="all_cheesy_bites">All Cheesy Bites</string>
+    <string name="type_new_cheesy_bite_pizza_name">Type new Cheesy Bite pizza name</string>
 </resources>
