@@ -69,12 +69,12 @@
         tools:layout="@layout/fragment_cheesy_bites" />
     <fragment
         android:id="@+id/sausageFragment"
-        android:name="com.ahamed.digitalkot.SausageFragment"
+        android:name="com.ahamed.digitalkot.ui.SausageFragment"
         android:label="fragment_sausage"
         tools:layout="@layout/fragment_sausage" />
     <fragment
         android:id="@+id/TCFragment"
-        android:name="com.ahamed.digitalkot.TCFragment"
+        android:name="com.ahamed.digitalkot.ui.TCFragment"
         android:label="fragment_t_c"
         tools:layout="@layout/fragment_t_c" />
 </navigation>

@@ -32,4 +32,5 @@
     <string name="drinks">drinks</string>
     <string name="all_sausage_crust">All Sausage Crust</string>
     <string name="type_your_new_sausage_crust_pizza">Type your new Sausage Crust pizza</string>
+    <string name="all_thin_crust_pizza">All Thin Crust pizza</string>
 </resources>

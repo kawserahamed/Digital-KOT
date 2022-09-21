@@ -1,4 +1,4 @@
-package com.ahamed.digitalkot;
+package com.ahamed.digitalkot.ui;
 
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -11,13 +11,14 @@ import android.widget.EditText;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 
-import com.ahamed.digitalkot.databinding.FragmentTCBinding;
+import com.ahamed.digitalkot.R;
+import com.ahamed.digitalkot.databinding.FragmentSausageBinding;
 
-public class TCFragment extends Fragment {
+public class SausageFragment extends Fragment {
 
     private AlertDialog alertDialog;
 
-    public TCFragment() {
+    public SausageFragment() {
         // Required empty public constructor
     }
 
@@ -25,20 +26,20 @@ public class TCFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        FragmentTCBinding binding = FragmentTCBinding.inflate(inflater, container, false);
+        FragmentSausageBinding binding = FragmentSausageBinding.inflate(inflater, container, false);
 
         AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
-        View dialogView = getLayoutInflater().inflate(R.layout.dailog_add_tc, null);
+        View dialogView = getLayoutInflater().inflate(R.layout.dailog_add_gs, null);
         builder.setView(dialogView);
         alertDialog = builder.create();
         binding.btnAdd.setOnClickListener(view -> alertDialog.show());
 
-        Button submit = dialogView.findViewById(R.id.tc_btn_ok);
-        Button cancel = dialogView.findViewById(R.id.tc_btn_cancel);
-        EditText name = dialogView.findViewById(R.id.tc_item_name);
-        EditText ed_personal = dialogView.findViewById(R.id.tc_personal_price);
-        EditText ed_medium = dialogView.findViewById(R.id.tc_medium_price);
-        EditText ed_family = dialogView.findViewById(R.id.tc_family_price);
+        Button submit = dialogView.findViewById(R.id.gs_btn_ok);
+        Button cancel = dialogView.findViewById(R.id.gs_btn_cancel);
+        EditText name = dialogView.findViewById(R.id.tv_gs_name);
+        EditText ed_personal = dialogView.findViewById(R.id.gs_personal_price);
+        EditText ed_medium = dialogView.findViewById(R.id.gs_medium_price);
+        EditText ed_family = dialogView.findViewById(R.id.gs_family_price);
 
         submit.setOnClickListener(view -> {
             int personal;
@@ -86,10 +87,11 @@ public class TCFragment extends Fragment {
             ed_family.setText(null);
         });
 
-
         return binding.getRoot();
     }
 
     private void dataSend(String itemName, int personal, int medium, int family) {
+
+
     }
 }
