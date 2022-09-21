@@ -1,112 +1,141 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
     </data>
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
         tools:context=".ui.SettingFragment">
 
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/id_toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/purple_500" />
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:baselineAligned="false"
-            android:orientation="horizontal">
+            android:orientation="vertical">
 
-            <FrameLayout
-                android:id="@+id/layout_pizza"
-                android:layout_width="0dp"
-                android:layout_height="100dp"
-                android:layout_margin="2.5dp"
-                android:layout_weight="1"
-                android:background="#F3CC8D"
-                android:orientation="horizontal">
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/id_toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/purple_500" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="8dp"
-                    android:text="@string/pizza"
-                    android:textAllCaps="true"
-                    android:textColor="@color/black"
-                    android:textSize="18sp" />
-            </FrameLayout>
 
-            <FrameLayout
-                android:id="@+id/layout_drinks"
-                android:layout_width="0dp"
-                android:layout_height="100dp"
-                android:layout_margin="2.5dp"
-                android:layout_weight="1"
-                android:background="#86EF8B">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/dot_background"
+                android:orientation="vertical">
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:id="@+id/tv_pan"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="8dp"
-                    android:text="drinks"
-                    android:textAllCaps="true"
+                    android:paddingHorizontal="16dp"
+                    android:paddingVertical="16dp"
+                    android:text="@string/pan_pizza"
                     android:textColor="@color/black"
                     android:textSize="18sp" />
-            </FrameLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="5dp"
+                    android:background="@drawable/dot_signal_line_background" />
+
+                <TextView
+                    android:id="@+id/tv_cheesy"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="16dp"
+                    android:paddingVertical="16dp"
+                    android:text="@string/cheesy_bites"
+                    android:textColor="@color/black"
+                    android:textSize="18sp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="5dp"
+                    android:background="@drawable/dot_signal_line_background" />
+
+                <TextView
+                    android:id="@+id/tv_sausage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="16dp"
+                    android:paddingVertical="16dp"
+                    android:text="@string/sausage_crust"
+                    android:textColor="@color/black"
+                    android:textSize="18sp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="5dp"
+                    android:background="@drawable/dot_signal_line_background" />
+
+                <TextView
+                    android:id="@+id/tv_thin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="16dp"
+                    android:paddingVertical="16dp"
+                    android:text="@string/thin_n_crust"
+                    android:textColor="@color/black"
+                    android:textSize="18sp" />
+
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="65dp"
+                android:background="@drawable/dot_background"
+                android:paddingHorizontal="16dp"
+                android:paddingVertical="16dp"
+                android:text="@string/appetizers"
+                android:textAllCaps="true"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                app:drawableEndCompat="@drawable/ic_round_arrow" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/dot_background"
+                android:paddingHorizontal="16dp"
+                android:paddingVertical="16dp"
+                android:text="@string/drinks"
+                android:textAllCaps="true"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                app:drawableEndCompat="@drawable/ic_round_arrow" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/dot_background"
+                android:paddingHorizontal="16dp"
+                android:paddingVertical="16dp"
+                android:text="@string/offers"
+                android:textAllCaps="true"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                app:drawableEndCompat="@drawable/ic_round_arrow" />
 
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:baselineAligned="false"
-            android:orientation="horizontal">
 
-            <FrameLayout
-                android:id="@+id/layout_appetizers"
-                android:layout_width="0dp"
-                android:layout_height="100dp"
-                android:layout_margin="2.5dp"
-                android:layout_weight="1"
-                android:background="#9EF4FB">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="8dp"
-                    android:text="@string/appetizers"
-                    android:textAllCaps="true"
-                    android:textColor="@color/black"
-                    android:textSize="18sp" />
-            </FrameLayout>
-
-            <FrameLayout
-                android:id="@+id/layout_offers"
-                android:layout_width="0dp"
-                android:layout_height="100dp"
-                android:layout_margin="2.5dp"
-                android:layout_weight="1"
-                android:background="#FFACAC">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="8dp"
-                    android:text="@string/offers"
-                    android:textAllCaps="true"
-                    android:textColor="@color/black"
-                    android:textSize="18sp" />
-            </FrameLayout>
-
-        </LinearLayout>
-
-
-    </LinearLayout>
+    </ScrollView>
 </layout>
