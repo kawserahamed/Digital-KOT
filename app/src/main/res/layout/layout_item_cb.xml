@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tool="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="pizza"
+            type="com.ahamed.digitalkot.entites.Cheesy" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="5dp">
+
+
+        <ImageView
+            android:id="@+id/btn_more"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/ic_more"
+            app:layout_constraintBottom_toBottomOf="@+id/id_pizzaName"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/id_pizzaName" />
+
+        <TextView
+            android:id="@+id/id_pizzaName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:padding="10dp"
+            android:text="@{pizza.itemName}"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toStartOf="@id/tv_personal"
+            app:layout_constraintStart_toEndOf="@+id/btn_more"
+            app:layout_constraintTop_toTopOf="parent"
+            tool:text="@string/bbq_temptation" />
+
+        <TextView
+            android:id="@+id/tv_personal"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="@{String.valueOf(pizza.personalPrice)}"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@id/tv_medium"
+            app:layout_constraintEnd_toStartOf="@id/tv_medium"
+            app:layout_constraintTop_toTopOf="@id/tv_medium"
+            tool:text="@string/_429" />
+
+        <TextView
+            android:id="@+id/tv_medium"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="@{String.valueOf(pizza.mediumPrice)}"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@id/tv_family"
+            app:layout_constraintEnd_toStartOf="@id/tv_family"
+            app:layout_constraintTop_toTopOf="@id/tv_family"
+            tool:text="@string/_429" />
+
+        <TextView
+            android:id="@+id/tv_family"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="@{String.valueOf(pizza.familyPrice)}"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@id/id_pizzaName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/id_pizzaName"
+            tool:text="@string/_429" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height=".8dp"
+            android:background="@color/gry"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/id_pizzaName" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>

@@ -12,7 +12,7 @@
         android:orientation="vertical">
 
         <EditText
-            android:id="@+id/tv_item_name"
+            android:id="@+id/tc_item_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/white"
@@ -44,7 +44,7 @@
             android:orientation="horizontal">
 
             <EditText
-                android:id="@+id/tv_personal_price"
+                android:id="@+id/tc_personal_price"
                 android:layout_width="0dp"
                 android:layout_height="35dp"
                 android:layout_margin="10dp"
@@ -57,7 +57,7 @@
                 android:textColorHint="@color/black" />
 
             <EditText
-                android:id="@+id/tv_medium_price"
+                android:id="@+id/tc_medium_price"
                 android:layout_width="0dp"
                 android:layout_height="35dp"
                 android:layout_margin="10dp"
@@ -70,7 +70,7 @@
                 android:textColorHint="@color/black" />
 
             <EditText
-                android:id="@+id/tv_family_price"
+                android:id="@+id/tc_family_price"
                 android:layout_width="0dp"
                 android:layout_height="35dp"
                 android:layout_margin="10dp"
@@ -93,7 +93,7 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/btn_cancel"
+                android:id="@+id/tc_btn_cancel"
                 style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -104,7 +104,7 @@
                 app:backgroundTint="@null" />
 
             <Button
-                android:id="@+id/btn_ok"
+                android:id="@+id/tc_btn_ok"
                 style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

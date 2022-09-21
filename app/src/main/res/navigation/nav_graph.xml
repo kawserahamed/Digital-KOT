@@ -9,7 +9,7 @@
         android:id="@+id/homeFragment"
         android:name="com.ahamed.digitalkot.ui.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" >
+        tools:layout="@layout/fragment_home">
         <action
             android:id="@+id/action_homeToSetting"
             app:destination="@id/settingFragment" />
@@ -18,10 +18,7 @@
         android:id="@+id/settingFragment"
         android:name="com.ahamed.digitalkot.ui.SettingFragment"
         android:label="fragment_setting"
-        tools:layout="@layout/fragment_setting" >
-        <action
-            android:id="@+id/settingToPizza"
-            app:destination="@id/pizzaFragment" />
+        tools:layout="@layout/fragment_setting">
         <action
             android:id="@+id/settingToAppetizer"
             app:destination="@id/appetizersFragment" />
@@ -31,24 +28,25 @@
         <action
             android:id="@+id/settingToOffer"
             app:destination="@id/offerFragment" />
+        <action
+            android:id="@+id/settingToPan"
+            app:destination="@id/panFragment" />
+        <action
+            android:id="@+id/settingToCB"
+            app:destination="@id/cheesyBitesFragment" />
+        <action
+            android:id="@+id/settingToSausage"
+            app:destination="@id/sausageFragment" />
+        <action
+            android:id="@+id/settingToTC"
+            app:destination="@id/TCFragment" />
     </fragment>
     <fragment
         android:id="@+id/appetizersFragment"
         android:name="com.ahamed.digitalkot.ui.AppetizersFragment"
         android:label="fragment_appetizers"
         tools:layout="@layout/fragment_appetizers" />
-    <fragment
-        android:id="@+id/pizzaFragment"
-        android:name="com.ahamed.digitalkot.ui.PizzaFragment"
-        android:label="fragment_pizza"
-        tools:layout="@layout/fragment_pizza" >
-        <action
-            android:id="@+id/pizzaToPan"
-            app:destination="@id/panFragment" />
-        <action
-            android:id="@+id/pizzaToCb"
-            app:destination="@id/cheesyBitesFragment" />
-    </fragment>
+
     <fragment
         android:id="@+id/drinksFragment"
         android:name="com.ahamed.digitalkot.ui.DrinksFragment"
@@ -69,4 +67,14 @@
         android:name="com.ahamed.digitalkot.ui.CheesyBitesFragment"
         android:label="fragment_cheesy_bites"
         tools:layout="@layout/fragment_cheesy_bites" />
+    <fragment
+        android:id="@+id/sausageFragment"
+        android:name="com.ahamed.digitalkot.SausageFragment"
+        android:label="fragment_sausage"
+        tools:layout="@layout/fragment_sausage" />
+    <fragment
+        android:id="@+id/TCFragment"
+        android:name="com.ahamed.digitalkot.TCFragment"
+        android:label="fragment_t_c"
+        tools:layout="@layout/fragment_t_c" />
 </navigation>

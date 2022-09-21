@@ -36,11 +36,10 @@ public class SettingFragment extends Fragment {
         Objects.requireNonNull(appCompatActivity.getSupportActionBar()).setTitle("Settings");
 
 
-
-        binding.layoutPizza.setOnClickListener(view -> Navigation.findNavController(view).navigate(R.id.settingToPizza));
-        binding.layoutAppetizers.setOnClickListener(view -> Navigation.findNavController(view).navigate(R.id.settingToAppetizer));
-        binding.layoutDrinks.setOnClickListener(view -> Navigation.findNavController(view).navigate(R.id.settingToDrinks));
-        binding.layoutOffers.setOnClickListener(view -> Navigation.findNavController(view).navigate(R.id.settingToOffer));
+        binding.tvPan.setOnClickListener(view -> Navigation.findNavController(view).navigate(R.id.settingToPan));
+        binding.tvCheesy.setOnClickListener(view -> Navigation.findNavController(view).navigate(R.id.settingToCB));
+        binding.tvSausage.setOnClickListener(view -> Navigation.findNavController(view).navigate(R.id.settingToSausage));
+        binding.tvThin.setOnClickListener(view -> Navigation.findNavController(view).navigate(R.id.settingToTC));
 
         return binding.getRoot();
     }
