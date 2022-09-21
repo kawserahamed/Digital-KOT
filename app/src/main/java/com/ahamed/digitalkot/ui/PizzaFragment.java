@@ -38,6 +38,7 @@ public class PizzaFragment extends Fragment {
         Objects.requireNonNull(appCompatActivity.getSupportActionBar()).setTitle("Pizza Settings");
 
         binding.tvPan.setOnClickListener(view -> Navigation.findNavController(view).navigate(R.id.pizzaToPan));
+        binding.tvCheesy.setOnClickListener(view -> Navigation.findNavController(view).navigate(R.id.pizzaToCb));
 
 
         return binding.getRoot();
