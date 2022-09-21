@@ -2,20 +2,29 @@ package com.ahamed.digitalkot.ui;
 
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 
 import com.ahamed.digitalkot.R;
 import com.ahamed.digitalkot.databinding.FragmentCheesyBitesBinding;
+import com.ahamed.digitalkot.entites.Cheesy;
+import com.ahamed.digitalkot.viewmodel.CheesyViewModel;
+
+import java.util.List;
 
 public class CheesyBitesFragment extends Fragment {
     private AlertDialog alertDialog;
+    private CheesyViewModel viewModel;
 
     public CheesyBitesFragment() {
         // Required empty public constructor
@@ -33,6 +42,14 @@ public class CheesyBitesFragment extends Fragment {
         builder.setView(dialogView);
         alertDialog = builder.create();
         binding.btnAdd.setOnClickListener(view -> alertDialog.show());
+
+        viewModel = new ViewModelProvider(requireActivity()).get(CheesyViewModel.class);
+        viewModel.getAllCb().observe(getViewLifecycleOwner(), new Observer<List<Cheesy>>() {
+            @Override
+            public void onChanged(List<Cheesy> cheesies) {
+                Log.d("TAG", "onChanged: " + cheesies.size());
+            }
+        });
 
         Button submit = dialogView.findViewById(R.id.cv_btn_ok);
         Button cancel = dialogView.findViewById(R.id.cv_btn_cancel);
@@ -92,6 +109,9 @@ public class CheesyBitesFragment extends Fragment {
     }
 
     private void dataSend(String itemName, int personal, int medium, int family) {
+        Cheesy cheesy = new Cheesy(itemName, personal, medium, family);
+        viewModel.addCB(cheesy);
+        Toast.makeText(getContext(), "Item Added", Toast.LENGTH_SHORT).show();
 
     }
 }

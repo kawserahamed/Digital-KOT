@@ -120,7 +120,6 @@ public class PanFragment extends Fragment implements PizzaListener {
 
     private void dataSend(String itemName, int personal, int medium, int family) {
         Pan panPizza = new Pan(itemName, personal, medium, family);
-        Log.d("TAG", "dataSend: " + itemName + personal + medium + family);
         viewModel.addPan(panPizza);
         Toast.makeText(getActivity(), "Item Added", Toast.LENGTH_SHORT).show();
     }
