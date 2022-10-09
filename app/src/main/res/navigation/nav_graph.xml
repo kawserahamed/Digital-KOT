@@ -82,7 +82,7 @@
         tools:layout="@layout/fragment_t_c" />
     <fragment
         android:id="@+id/addCustomerFragment"
-        android:name="com.ahamed.digitalkot.AddCustomerFragment"
+        android:name="com.ahamed.digitalkot.ui.AddCustomerFragment"
         android:label="fragment_add_customer"
         tools:layout="@layout/fragment_add_customer" />
 </navigation>

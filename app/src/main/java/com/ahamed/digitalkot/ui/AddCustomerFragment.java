@@ -1,4 +1,4 @@
-package com.ahamed.digitalkot;
+package com.ahamed.digitalkot.ui;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -12,6 +12,7 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.ahamed.digitalkot.R;
 import com.ahamed.digitalkot.adapter.RvPanAdapter;
 import com.ahamed.digitalkot.databinding.FragmentAddCustomerBinding;
 import com.ahamed.digitalkot.entites.Pan;
@@ -58,13 +59,10 @@ public class AddCustomerFragment extends Fragment {
             adapter.notifyDataSetChanged();
         });
 
-
         binding.btnPan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 alertDialog.show();
-
 
             }
         });
