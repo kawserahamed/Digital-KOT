@@ -18,11 +18,11 @@
             android:orientation="vertical">
 
             <androidx.appcompat.widget.Toolbar
+                app:titleTextColor="@color/white"
                 android:id="@+id/id_toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/purple_500" />
-
 
 
             <LinearLayout

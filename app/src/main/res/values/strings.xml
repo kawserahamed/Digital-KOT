@@ -4,7 +4,7 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="settings">Settings</string>
     <string name="pizza">pizza</string>
-    <string name="appetizers">appetizers</string>
+    <string name="appetizers">Appetizers</string>
     <string name="pasta">pasta</string>
     <string name="offers">Offers</string>
     <string name="pan_pizza">Pan Pizza</string>
@@ -29,8 +29,14 @@
     <string name="delete">Delete</string>
     <string name="all_cheesy_bites">All Cheesy Bites</string>
     <string name="type_new_cheesy_bite_pizza_name">Type new Cheesy Bite pizza name</string>
-    <string name="drinks">drinks</string>
+    <string name="drinks">Drinks</string>
     <string name="all_sausage_crust">All Sausage Crust</string>
     <string name="type_your_new_sausage_crust_pizza">Type your new Sausage Crust pizza</string>
     <string name="all_thin_crust_pizza">All Thin Crust pizza</string>
+    <string name="add_customer">Add Customer</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="pan">PAN</string>
+    <string name="cb">CB</string>
+    <string name="gs">GS</string>
+    <string name="tc">TC</string>
 </resources>

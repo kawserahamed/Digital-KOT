@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_homeToSetting"
             app:destination="@id/settingFragment" />
+        <action
+            android:id="@+id/homeToCustomer"
+            app:destination="@id/addCustomerFragment" />
     </fragment>
     <fragment
         android:id="@+id/settingFragment"
@@ -77,4 +80,9 @@
         android:name="com.ahamed.digitalkot.ui.TCFragment"
         android:label="fragment_t_c"
         tools:layout="@layout/fragment_t_c" />
+    <fragment
+        android:id="@+id/addCustomerFragment"
+        android:name="com.ahamed.digitalkot.AddCustomerFragment"
+        android:label="fragment_add_customer"
+        tools:layout="@layout/fragment_add_customer" />
 </navigation>

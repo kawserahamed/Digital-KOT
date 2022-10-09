@@ -27,8 +27,8 @@ public class HomeFragment extends Fragment {
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
-        setHasOptionsMenu(true);
         super.onCreate(savedInstanceState);
+        setHasOptionsMenu(true);
     }
 
     @Override
@@ -56,6 +56,7 @@ public class HomeFragment extends Fragment {
         AppCompatActivity appCompatActivity = (AppCompatActivity) getActivity();
         assert appCompatActivity != null;
         appCompatActivity.setSupportActionBar(binding.idToolbar);
+        binding.btnAdd.setOnClickListener(view -> Navigation.findNavController(view).navigate(R.id.homeToCustomer));
 
 
         return binding.getRoot();

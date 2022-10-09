@@ -13,4 +13,12 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+
+
+    <style name="DialogStyle" parent="Base.Theme.AppCompat.Dialog">
+        <item name="android:windowMinWidthMajor">57%</item>
+        <item name="android:windowMinWidthMinor">57%</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
 </resources>
