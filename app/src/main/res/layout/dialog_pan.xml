@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tool="http://schemas.android.com/tools">
 
     <data>
 
@@ -9,30 +10,42 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:theme="@style/Theme.Material3.Light.Dialog.Alert">
 
         <RadioGroup
             android:id="@+id/radioGroup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="#FBF6C4"
             android:gravity="center"
             android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
+            <Spinner
+                android:id="@+id/spQuantity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="5dp"
+                android:background="@drawable/price_background"
+                android:entries="@array/quantity"
+                android:padding="8dp"
+                android:spinnerMode="dropdown" />
+
             <RadioButton
                 android:id="@+id/rPersonal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="10dp"
+                android:layout_marginHorizontal="5dp"
                 android:text="@string/personal" />
 
             <RadioButton
                 android:id="@+id/rMedium"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="10dp"
+                android:layout_marginHorizontal="5dp"
                 android:checked="true"
                 android:text="@string/medium" />
 
@@ -40,7 +53,7 @@
                 android:id="@+id/rFamily"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="10dp"
+                android:layout_marginHorizontal="5dp"
                 android:text="@string/family" />
 
         </RadioGroup>
@@ -49,18 +62,18 @@
             android:id="@+id/tv_selected_item"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:background="@drawable/dot_background"
+            android:background="#FBF6C4"
             android:gravity="center"
             android:padding="10dp"
             android:textColor="@color/lite_red"
             android:textSize="16sp"
-            app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@+id/radioGroup"
+            tool:text="@string/bbq_temptation" />
 
         <View
             android:layout_width="match_parent"
             android:layout_height=".5dp"
-            android:layout_marginTop="10dp"
             android:background="@color/black" />
 
         <androidx.recyclerview.widget.RecyclerView
