@@ -20,15 +20,16 @@
             android:id="@+id/id_pizzaName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="10dp"
+            android:padding="15dp"
             android:text="@{pizza.itemName}"
             android:textColor="@color/black"
             android:textSize="16sp"
             tool:text="@string/bbq_temptation" />
+
         <View
-            android:background="#595959"
             android:layout_width="match_parent"
-            android:layout_height=".5dp"/>
+            android:layout_height=".5dp"
+            android:background="#595959" />
 
     </LinearLayout>
 

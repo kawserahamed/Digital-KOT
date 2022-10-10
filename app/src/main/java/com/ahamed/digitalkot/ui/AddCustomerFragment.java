@@ -1,5 +1,6 @@
 package com.ahamed.digitalkot.ui;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -33,6 +34,7 @@ public class AddCustomerFragment extends Fragment implements PizzaListener {
         // Required empty public constructor
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
