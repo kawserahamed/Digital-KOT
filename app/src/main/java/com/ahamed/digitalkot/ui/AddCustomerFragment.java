@@ -16,13 +16,14 @@ import com.ahamed.digitalkot.R;
 import com.ahamed.digitalkot.adapter.RvPanAdapter;
 import com.ahamed.digitalkot.databinding.FragmentAddCustomerBinding;
 import com.ahamed.digitalkot.entites.Pan;
+import com.ahamed.digitalkot.listener.PizzaListener;
 import com.ahamed.digitalkot.viewmodel.PanViewModel;
 
 import java.util.ArrayList;
 import java.util.List;
 
 
-public class AddCustomerFragment extends Fragment {
+public class AddCustomerFragment extends Fragment implements PizzaListener {
     private AlertDialog alertDialog;
     private List<Pan> pizzaList;
     private RvPanAdapter adapter;
@@ -44,7 +45,7 @@ public class AddCustomerFragment extends Fragment {
         RecyclerView recyclerView = dialogView.findViewById(R.id.rv_pan);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        adapter = new RvPanAdapter(pizzaList);
+        adapter = new RvPanAdapter(pizzaList, this);
         recyclerView.setAdapter(adapter);
         builder.setView(dialogView);
         alertDialog = builder.create();
@@ -66,5 +67,10 @@ public class AddCustomerFragment extends Fragment {
         });
 
         return binding.getRoot();
+    }
+
+    @Override
+    public void actionListener(Pan pan) {
+
     }
 }

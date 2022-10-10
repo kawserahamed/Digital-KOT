@@ -3,7 +3,6 @@ package com.ahamed.digitalkot.ui;
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,7 +12,6 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
@@ -21,12 +19,13 @@ import com.ahamed.digitalkot.R;
 import com.ahamed.digitalkot.adapter.CBAdapter;
 import com.ahamed.digitalkot.databinding.FragmentCheesyBitesBinding;
 import com.ahamed.digitalkot.entites.Cheesy;
+import com.ahamed.digitalkot.listener.CBListener;
 import com.ahamed.digitalkot.viewmodel.CheesyViewModel;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class CheesyBitesFragment extends Fragment {
+public class CheesyBitesFragment extends Fragment implements CBListener {
     private AlertDialog alertDialog;
     private CheesyViewModel viewModel;
     private CBAdapter adapter;
@@ -38,8 +37,7 @@ public class CheesyBitesFragment extends Fragment {
 
     @SuppressLint("NotifyDataSetChanged")
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         FragmentCheesyBitesBinding binding = FragmentCheesyBitesBinding.inflate(inflater, container, false);
         List<Cheesy> pizzaList = new ArrayList<>();
@@ -51,7 +49,7 @@ public class CheesyBitesFragment extends Fragment {
         binding.btnAdd.setOnClickListener(view -> alertDialog.show());
 
         binding.rvAllCV.setLayoutManager(new LinearLayoutManager(getContext()));
-        adapter = new CBAdapter(pizzaList);
+        adapter = new CBAdapter(pizzaList, this);
         binding.rvAllCV.setAdapter(adapter);
 
         viewModel = new ViewModelProvider(requireActivity()).get(CheesyViewModel.class);
@@ -59,7 +57,6 @@ public class CheesyBitesFragment extends Fragment {
             pizzaList.clear();
             pizzaList.addAll(cheesies);
             adapter.notifyDataSetChanged();
-            Log.d("TAG", "onChanged: " + cheesies.size());
         });
 
         Button submit = dialogView.findViewById(R.id.cv_btn_ok);
@@ -123,5 +120,10 @@ public class CheesyBitesFragment extends Fragment {
         viewModel.addCB(cheesy);
         Toast.makeText(getContext(), "Item Added", Toast.LENGTH_SHORT).show();
 
+    }
+
+    @Override
+    public void actionListener(Cheesy cheesy) {
+        viewModel.deleteCB(cheesy);
     }
 }
