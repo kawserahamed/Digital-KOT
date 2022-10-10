@@ -39,4 +39,6 @@
     <string name="cb">CB</string>
     <string name="gs">GS</string>
     <string name="tc">TC</string>
+    <string name="_000_bdt">000 BDT</string>
+    <string name="total_price">Total Price</string>
 </resources>

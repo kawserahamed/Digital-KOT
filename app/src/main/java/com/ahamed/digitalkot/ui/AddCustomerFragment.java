@@ -24,10 +24,8 @@ import java.util.List;
 
 public class AddCustomerFragment extends Fragment {
     private AlertDialog alertDialog;
-    private PanViewModel viewModel;
     private List<Pan> pizzaList;
     private RvPanAdapter adapter;
-    private RecyclerView recyclerView;
 
 
     public AddCustomerFragment() {
@@ -43,15 +41,15 @@ public class AddCustomerFragment extends Fragment {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
         View dialogView = getLayoutInflater().inflate(R.layout.dialog_pan, null);
-        recyclerView = dialogView.findViewById(R.id.rv_pan);
+        RecyclerView recyclerView = dialogView.findViewById(R.id.rv_pan);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        ;
+
         adapter = new RvPanAdapter(pizzaList);
         recyclerView.setAdapter(adapter);
         builder.setView(dialogView);
         alertDialog = builder.create();
 
-        viewModel = new ViewModelProvider(requireActivity()).get(PanViewModel.class);
+        PanViewModel viewModel = new ViewModelProvider(requireActivity()).get(PanViewModel.class);
         viewModel.getAllPanPizza().observe(getViewLifecycleOwner(), pans -> {
             Log.d("TAG", "onClick: " + pans.size());
             pizzaList.clear();
