@@ -1,17 +1,20 @@
 package com.ahamed.digitalkot.entites;
 
+
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
-@Entity(tableName = "tbl_cb_pizza")
-public class Cheesy {
+@Entity(tableName = "tbl_pan_pizza")
+public class Pizza {
 
     @PrimaryKey(autoGenerate = true)
     int id;
     @ColumnInfo(name = "item_name")
     String itemName;
+    @ColumnInfo(name = "item_type")
+    String pizzaType;
     @ColumnInfo(name = "personal_price")
     int personalPrice;
     @ColumnInfo(name = "medium_price")
@@ -19,17 +22,19 @@ public class Cheesy {
     @ColumnInfo(name = "family_price")
     int familyPrice;
 
-    public Cheesy(String itemName, int personalPrice, int mediumPrice, int familyPrice) {
+    public Pizza(String itemName, String pizzaType, int personalPrice, int mediumPrice, int familyPrice) {
         this.itemName = itemName;
+        this.pizzaType = pizzaType;
         this.personalPrice = personalPrice;
         this.mediumPrice = mediumPrice;
         this.familyPrice = familyPrice;
     }
 
     @Ignore
-    public Cheesy(int id, String itemName, int personalPrice, int mediumPrice, int familyPrice) {
+    public Pizza(int id, String itemName, String pizzaType, int personalPrice, int mediumPrice, int familyPrice) {
         this.id = id;
         this.itemName = itemName;
+        this.pizzaType = pizzaType;
         this.personalPrice = personalPrice;
         this.mediumPrice = mediumPrice;
         this.familyPrice = familyPrice;
@@ -49,6 +54,14 @@ public class Cheesy {
 
     public void setItemName(String itemName) {
         this.itemName = itemName;
+    }
+
+    public String getPizzaType() {
+        return pizzaType;
+    }
+
+    public void setPizzaType(String pizzaType) {
+        this.pizzaType = pizzaType;
     }
 
     public int getPersonalPrice() {

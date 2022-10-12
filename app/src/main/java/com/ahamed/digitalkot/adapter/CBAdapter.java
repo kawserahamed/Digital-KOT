@@ -3,7 +3,6 @@ package com.ahamed.digitalkot.adapter;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.MenuInflater;
-import android.view.View;
 import android.view.ViewGroup;
 import android.widget.PopupMenu;
 
@@ -13,19 +12,18 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.ahamed.digitalkot.R;
 import com.ahamed.digitalkot.databinding.LayoutItemCbBinding;
-import com.ahamed.digitalkot.entites.Cheesy;
-import com.ahamed.digitalkot.entites.Pan;
-import com.ahamed.digitalkot.listener.CBListener;
+import com.ahamed.digitalkot.entites.Pizza;
+import com.ahamed.digitalkot.listener.PizzaListener;
 
 import java.util.List;
 
 public class CBAdapter extends RecyclerView.Adapter<CBAdapter.CBViewHolder> {
-    private List<Cheesy> pizzaList;
-    private CBListener listener;
+    private List<Pizza> pizzaList;
+    private PizzaListener listener;
 
-    public CBAdapter(List<Cheesy> pizzaList, Fragment fragment) {
+    public CBAdapter(List<Pizza> pizzaList, Fragment fragment) {
         this.pizzaList = pizzaList;
-        this.listener = (CBListener) fragment;
+        this.listener = (PizzaListener) fragment;
     }
 
     public CBAdapter() {
@@ -41,7 +39,7 @@ public class CBAdapter extends RecyclerView.Adapter<CBAdapter.CBViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull CBViewHolder holder, int position) {
-        Cheesy cheesy = pizzaList.get(position);
+        Pizza cheesy = pizzaList.get(position);
         holder.bind(cheesy);
     }
 
@@ -57,7 +55,7 @@ public class CBAdapter extends RecyclerView.Adapter<CBAdapter.CBViewHolder> {
             super(binding.getRoot());
             this.binding = binding;
             this.binding.btnMore.setOnClickListener(view -> {
-                final Cheesy cheesy = pizzaList.get(getAdapterPosition());
+                final Pizza cheesy = pizzaList.get(getAdapterPosition());
                 final PopupMenu popupMenu = new PopupMenu(view.getContext(), view);
                 final MenuInflater inflater = popupMenu.getMenuInflater();
                 inflater.inflate(R.menu.menu_delete, popupMenu.getMenu());
@@ -72,8 +70,8 @@ public class CBAdapter extends RecyclerView.Adapter<CBAdapter.CBViewHolder> {
             });
         }
 
-        public void bind(Cheesy cheesy) {
-            binding.setPizza(cheesy);
+        public void bind(Pizza pizza) {
+            binding.setPizza(pizza);
         }
     }
 }

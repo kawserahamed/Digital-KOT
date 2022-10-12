@@ -7,9 +7,9 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
 import com.ahamed.digitalkot.dao.PanDao;
-import com.ahamed.digitalkot.entites.Pan;
+import com.ahamed.digitalkot.entites.Pizza;
 
-@Database(entities = {Pan.class}, version = 1)
+@Database(entities = {Pizza.class}, version = 1)
 public abstract class PanPizzaDatabase extends RoomDatabase {
     public abstract PanDao getPanDao();
     private static PanPizzaDatabase database;

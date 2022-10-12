@@ -7,7 +7,7 @@
 
         <variable
             name="pizza"
-            type="com.ahamed.digitalkot.entites.Pan" />
+            type="com.ahamed.digitalkot.entites.Pizza" />
 
     </data>
 

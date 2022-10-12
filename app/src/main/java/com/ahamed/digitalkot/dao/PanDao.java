@@ -7,7 +7,7 @@ import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Update;
 
-import com.ahamed.digitalkot.entites.Pan;
+import com.ahamed.digitalkot.entites.Pizza;
 
 import java.util.List;
 
@@ -15,14 +15,17 @@ import java.util.List;
 public interface PanDao {
 
     @Insert
-    void insertPan(Pan pan);
+    void insertPan(Pizza pan);
 
     @Delete
-    void deletePan(Pan pan);
+    void deletePan(Pizza pan);
 
     @Update
-    void updatePan(Pan pan);
+    void updatePan(Pizza pan);
 
-    @Query("select * from tbl_pan_pizza")
-    LiveData<List<Pan>> getAllPan();
+    @Query("select * from tbl_pan_pizza where item_type = 'Pan' ")
+    LiveData<List<Pizza>> getAllPan();
+
+    @Query("select * from tbl_pan_pizza where item_type = 'CB' ")
+    LiveData<List<Pizza>> getAllCB();
 }

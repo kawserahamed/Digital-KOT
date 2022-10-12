@@ -18,17 +18,18 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import com.ahamed.digitalkot.R;
 import com.ahamed.digitalkot.adapter.CBAdapter;
 import com.ahamed.digitalkot.databinding.FragmentCheesyBitesBinding;
-import com.ahamed.digitalkot.entites.Cheesy;
-import com.ahamed.digitalkot.listener.CBListener;
-import com.ahamed.digitalkot.viewmodel.CheesyViewModel;
+import com.ahamed.digitalkot.entites.Pizza;
+import com.ahamed.digitalkot.listener.PizzaListener;
+import com.ahamed.digitalkot.viewmodel.PizzaViewModel;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class CheesyBitesFragment extends Fragment implements CBListener {
+public class CheesyBitesFragment extends Fragment implements PizzaListener {
     private AlertDialog alertDialog;
-    private CheesyViewModel viewModel;
+    private PizzaViewModel viewModel;
     private CBAdapter adapter;
+
 
     public CheesyBitesFragment() {
         // Required empty public constructor
@@ -40,10 +41,10 @@ public class CheesyBitesFragment extends Fragment implements CBListener {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         FragmentCheesyBitesBinding binding = FragmentCheesyBitesBinding.inflate(inflater, container, false);
-        List<Cheesy> pizzaList = new ArrayList<>();
+        List<Pizza> pizzaList = new ArrayList<>();
 
         AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
-        View dialogView = getLayoutInflater().inflate(R.layout.dailog_add_cb, null);
+        View dialogView = getLayoutInflater().inflate(R.layout.dailog_add_pan_pizza, null);
         builder.setView(dialogView);
         alertDialog = builder.create();
         binding.btnAdd.setOnClickListener(view -> alertDialog.show());
@@ -52,19 +53,20 @@ public class CheesyBitesFragment extends Fragment implements CBListener {
         adapter = new CBAdapter(pizzaList, this);
         binding.rvAllCV.setAdapter(adapter);
 
-        viewModel = new ViewModelProvider(requireActivity()).get(CheesyViewModel.class);
-        viewModel.getAllCb().observe(getViewLifecycleOwner(), cheesies -> {
+        viewModel = new ViewModelProvider(requireActivity()).get(PizzaViewModel.class);
+        viewModel.getAllCB().observe(getViewLifecycleOwner(), pizzas -> {
             pizzaList.clear();
-            pizzaList.addAll(cheesies);
+            pizzaList.addAll(pizzas);
             adapter.notifyDataSetChanged();
         });
 
-        Button submit = dialogView.findViewById(R.id.cv_btn_ok);
-        Button cancel = dialogView.findViewById(R.id.cv_btn_cancel);
-        EditText name = dialogView.findViewById(R.id.tv_cv_name);
-        EditText ed_personal = dialogView.findViewById(R.id.cv_personal_price);
-        EditText ed_medium = dialogView.findViewById(R.id.cv_medium_price);
-        EditText ed_family = dialogView.findViewById(R.id.cv_family_price);
+        Button submit = dialogView.findViewById(R.id.btn_ok);
+        Button cancel = dialogView.findViewById(R.id.btn_cancel);
+        EditText name = dialogView.findViewById(R.id.tv_item_name);
+        EditText ed_personal = dialogView.findViewById(R.id.tv_personal_price);
+        EditText ed_medium = dialogView.findViewById(R.id.tv_medium_price);
+        EditText ed_family = dialogView.findViewById(R.id.tv_family_price);
+
 
         submit.setOnClickListener(view -> {
             int personal;
@@ -116,14 +118,14 @@ public class CheesyBitesFragment extends Fragment implements CBListener {
     }
 
     private void dataSend(String itemName, int personal, int medium, int family) {
-        Cheesy cheesy = new Cheesy(itemName, personal, medium, family);
-        viewModel.addCB(cheesy);
+        Pizza pizza = new Pizza(itemName, "CB", personal, medium, family);
+        viewModel.addPan(pizza);
         Toast.makeText(getContext(), "Item Added", Toast.LENGTH_SHORT).show();
 
     }
 
     @Override
-    public void actionListener(Cheesy cheesy) {
-        viewModel.deleteCB(cheesy);
+    public void actionListener(Pizza pan) {
+        viewModel.deletePan(pan);
     }
 }

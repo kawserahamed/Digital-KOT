@@ -18,9 +18,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import com.ahamed.digitalkot.R;
 import com.ahamed.digitalkot.adapter.PanPizzaAdapter;
 import com.ahamed.digitalkot.databinding.FragmentPanBinding;
-import com.ahamed.digitalkot.entites.Pan;
+import com.ahamed.digitalkot.entites.Pizza;
 import com.ahamed.digitalkot.listener.PizzaListener;
-import com.ahamed.digitalkot.viewmodel.PanViewModel;
+import com.ahamed.digitalkot.viewmodel.PizzaViewModel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,9 +28,9 @@ import java.util.List;
 
 public class PanFragment extends Fragment implements PizzaListener {
     AlertDialog alertDialog;
-    PanViewModel viewModel;
+    PizzaViewModel viewModel;
     PanPizzaAdapter adapter;
-    List<Pan> pizzaList;
+    List<Pizza> pizzaList;
 
     public PanFragment() {
         // Required empty public constructor
@@ -38,8 +38,7 @@ public class PanFragment extends Fragment implements PizzaListener {
 
     @SuppressLint("NotifyDataSetChanged")
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         FragmentPanBinding binding = FragmentPanBinding.inflate(inflater);
         pizzaList = new ArrayList<>();
@@ -53,7 +52,7 @@ public class PanFragment extends Fragment implements PizzaListener {
         adapter = new PanPizzaAdapter(pizzaList, this);
         binding.rvAllPan.setAdapter(adapter);
 
-        viewModel = new ViewModelProvider(requireActivity()).get(PanViewModel.class);
+        viewModel = new ViewModelProvider(requireActivity()).get(PizzaViewModel.class);
         viewModel.getAllPanPizza().observe(getViewLifecycleOwner(), pans -> {
             pizzaList.clear();
             pizzaList.addAll(pans);
@@ -118,13 +117,13 @@ public class PanFragment extends Fragment implements PizzaListener {
     }
 
     private void dataSend(String itemName, int personal, int medium, int family) {
-        Pan panPizza = new Pan(itemName, personal, medium, family);
+        Pizza panPizza = new Pizza(itemName, "Pan", personal, medium, family);
         viewModel.addPan(panPizza);
         Toast.makeText(getActivity(), "Item Added", Toast.LENGTH_SHORT).show();
     }
 
     @Override
-    public void actionListener(Pan pan) {
+    public void actionListener(Pizza pan) {
         viewModel.deletePan(pan);
     }
 }

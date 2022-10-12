@@ -10,4 +10,6 @@
     <color name="red">#C62828</color>
     <color name="lite_red">#F86262</color>
     <color name="gry">#595959</color>
+    <color name="green_lite">#85FA8A</color>
+    <color name="red_lite">#FD9B94</color>
 </resources>

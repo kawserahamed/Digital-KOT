@@ -29,17 +29,17 @@ public class SausageFragment extends Fragment {
         FragmentSausageBinding binding = FragmentSausageBinding.inflate(inflater, container, false);
 
         AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
-        View dialogView = getLayoutInflater().inflate(R.layout.dailog_add_gs, null);
+        View dialogView = getLayoutInflater().inflate(R.layout.dailog_add_pan_pizza, null);
         builder.setView(dialogView);
         alertDialog = builder.create();
         binding.btnAdd.setOnClickListener(view -> alertDialog.show());
 
-        Button submit = dialogView.findViewById(R.id.gs_btn_ok);
-        Button cancel = dialogView.findViewById(R.id.gs_btn_cancel);
-        EditText name = dialogView.findViewById(R.id.tv_gs_name);
-        EditText ed_personal = dialogView.findViewById(R.id.gs_personal_price);
-        EditText ed_medium = dialogView.findViewById(R.id.gs_medium_price);
-        EditText ed_family = dialogView.findViewById(R.id.gs_family_price);
+        Button submit = dialogView.findViewById(R.id.btn_ok);
+        Button cancel = dialogView.findViewById(R.id.btn_cancel);
+        EditText name = dialogView.findViewById(R.id.tv_item_name);
+        EditText ed_personal = dialogView.findViewById(R.id.tv_personal_price);
+        EditText ed_medium = dialogView.findViewById(R.id.tv_medium_price);
+        EditText ed_family = dialogView.findViewById(R.id.tv_family_price);
 
         submit.setOnClickListener(view -> {
             int personal;

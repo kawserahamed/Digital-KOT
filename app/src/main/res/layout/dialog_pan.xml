@@ -9,7 +9,8 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
         android:orientation="vertical"
         android:theme="@style/Theme.Material3.Light.Dialog.Alert">
 
@@ -78,7 +79,7 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_pan"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="400dp"
             android:layout_marginTop="5dp" />
 
         <LinearLayout
@@ -93,7 +94,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="16dp"
                 android:layout_weight="1"
-                android:background="#FAAFAA"
+                android:background="@color/red_lite"
                 android:gravity="center"
                 android:padding="5dp"
                 android:text="@string/cancel"
@@ -106,7 +107,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="16dp"
                 android:layout_weight="1"
-                android:background="#9CFDA0"
+                android:background="@color/green_lite"
                 android:gravity="center"
                 android:padding="5dp"
                 android:text="@string/okay"

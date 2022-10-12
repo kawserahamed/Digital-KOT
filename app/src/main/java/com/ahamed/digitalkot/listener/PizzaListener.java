@@ -1,8 +1,8 @@
 package com.ahamed.digitalkot.listener;
 
-import com.ahamed.digitalkot.entites.Pan;
+import com.ahamed.digitalkot.entites.Pizza;
 
 public interface PizzaListener {
 
-    void actionListener(Pan pan);
+    void actionListener(Pizza pan);
 }

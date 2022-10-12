@@ -6,8 +6,7 @@ import androidx.lifecycle.LiveData;
 
 import com.ahamed.digitalkot.dao.PanDao;
 import com.ahamed.digitalkot.database.PanPizzaDatabase;
-import com.ahamed.digitalkot.entites.Cheesy;
-import com.ahamed.digitalkot.entites.Pan;
+import com.ahamed.digitalkot.entites.Pizza;
 
 import java.util.List;
 
@@ -19,19 +18,22 @@ public class PanRepository {
         panDao = PanPizzaDatabase.getDatabase(context).getPanDao();
     }
 
-    public void addPan(Pan pan) {
+    public void addPan(Pizza pan) {
         panDao.insertPan(pan);
     }
 
-    public void deletePan(Pan pan) {
+    public void deletePan(Pizza pan) {
         panDao.deletePan(pan);
     }
 
-    public void updatePan(Pan pan) {
+    public void updatePan(Pizza pan) {
         panDao.updatePan(pan);
     }
 
-    public LiveData<List<Pan>> getAllPanPizza() {
+    public LiveData<List<Pizza>> getAllPanPizza() {
         return panDao.getAllPan();
+    }
+    public LiveData<List<Pizza>> getAllCB() {
+        return panDao.getAllCB();
     }
 }

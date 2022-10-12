@@ -9,17 +9,17 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.ahamed.digitalkot.databinding.LayoutRvPanBinding;
-import com.ahamed.digitalkot.entites.Pan;
+import com.ahamed.digitalkot.entites.Pizza;
 import com.ahamed.digitalkot.listener.PizzaListener;
 
 import java.util.List;
 
 public class RvPanAdapter extends RecyclerView.Adapter<RvPanAdapter.RvPanViewHolder> {
-    private List<Pan> pizzaList;
+    private List<Pizza> pizzaList;
     private PizzaListener listener;
 
 
-    public RvPanAdapter(List<Pan> pizzaList, Fragment fragment) {
+    public RvPanAdapter(List<Pizza> pizzaList, Fragment fragment) {
         this.pizzaList = pizzaList;
         this.listener = (PizzaListener) fragment;
 
@@ -39,7 +39,7 @@ public class RvPanAdapter extends RecyclerView.Adapter<RvPanAdapter.RvPanViewHol
 
     @Override
     public void onBindViewHolder(@NonNull RvPanViewHolder holder, int position) {
-        final Pan pan = pizzaList.get(position);
+        final Pizza pan = pizzaList.get(position);
         holder.bind(pan);
         holder.itemView.setOnClickListener(view -> listener.actionListener(pan));
 
@@ -60,7 +60,7 @@ public class RvPanAdapter extends RecyclerView.Adapter<RvPanAdapter.RvPanViewHol
             this.binding = binding;
         }
 
-        public void bind(Pan pan) {
+        public void bind(Pizza pan) {
             binding.setPizza(pan);
         }
     }

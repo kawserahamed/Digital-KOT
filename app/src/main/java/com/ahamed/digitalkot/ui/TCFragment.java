@@ -29,17 +29,16 @@ public class TCFragment extends Fragment {
         FragmentTCBinding binding = FragmentTCBinding.inflate(inflater, container, false);
 
         AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
-        View dialogView = getLayoutInflater().inflate(R.layout.dailog_add_tc, null);
+        View dialogView = getLayoutInflater().inflate(R.layout.dailog_add_pan_pizza, null);
         builder.setView(dialogView);
         alertDialog = builder.create();
         binding.btnAdd.setOnClickListener(view -> alertDialog.show());
-
-        Button submit = dialogView.findViewById(R.id.tc_btn_ok);
-        Button cancel = dialogView.findViewById(R.id.tc_btn_cancel);
-        EditText name = dialogView.findViewById(R.id.tc_item_name);
-        EditText ed_personal = dialogView.findViewById(R.id.tc_personal_price);
-        EditText ed_medium = dialogView.findViewById(R.id.tc_medium_price);
-        EditText ed_family = dialogView.findViewById(R.id.tc_family_price);
+        Button submit = dialogView.findViewById(R.id.btn_ok);
+        Button cancel = dialogView.findViewById(R.id.btn_cancel);
+        EditText name = dialogView.findViewById(R.id.tv_item_name);
+        EditText ed_personal = dialogView.findViewById(R.id.tv_personal_price);
+        EditText ed_medium = dialogView.findViewById(R.id.tv_medium_price);
+        EditText ed_family = dialogView.findViewById(R.id.tv_family_price);
 
         submit.setOnClickListener(view -> {
             int personal;
@@ -86,11 +85,8 @@ public class TCFragment extends Fragment {
             ed_medium.setText(null);
             ed_family.setText(null);
         });
-
-
         return binding.getRoot();
     }
-
     private void dataSend(String itemName, int personal, int medium, int family) {
     }
 }
