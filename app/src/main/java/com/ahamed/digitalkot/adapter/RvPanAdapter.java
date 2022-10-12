@@ -2,7 +2,6 @@ package com.ahamed.digitalkot.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
@@ -19,9 +18,11 @@ public class RvPanAdapter extends RecyclerView.Adapter<RvPanAdapter.RvPanViewHol
     private List<Pan> pizzaList;
     private PizzaListener listener;
 
+
     public RvPanAdapter(List<Pan> pizzaList, Fragment fragment) {
         this.pizzaList = pizzaList;
         this.listener = (PizzaListener) fragment;
+
     }
 
     public RvPanAdapter() {

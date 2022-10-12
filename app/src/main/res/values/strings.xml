@@ -41,6 +41,7 @@
     <string name="tc">TC</string>
     <string name="_000_bdt">000 BDT</string>
     <string name="total_price">Total Price</string>
+    <string name="okay">Okay</string>
 
     <string-array name="quantity">
         <item>1</item>

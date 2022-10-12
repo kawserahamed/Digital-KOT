@@ -2,10 +2,16 @@ package com.ahamed.digitalkot.ui;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.Spinner;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
@@ -28,6 +34,13 @@ public class AddCustomerFragment extends Fragment implements PizzaListener {
     private AlertDialog alertDialog;
     private List<Pan> pizzaList;
     private RvPanAdapter adapter;
+    private TextView itemSelectName;
+    private Pan clickedItem;
+    private Spinner quantity;
+    private RadioGroup radioGroup;
+    private RadioButton radioButton;
+    private int price;
+    private int finalPrice = 000;
 
 
     public AddCustomerFragment() {
@@ -38,15 +51,22 @@ public class AddCustomerFragment extends Fragment implements PizzaListener {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-
         FragmentAddCustomerBinding binding = FragmentAddCustomerBinding.inflate(inflater);
+
         pizzaList = new ArrayList<>();
 
         AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
         View dialogView = getLayoutInflater().inflate(R.layout.dialog_pan, null);
-        RecyclerView recyclerView = dialogView.findViewById(R.id.rv_pan);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
+        itemSelectName = dialogView.findViewById(R.id.tv_selected_item);
+        TextView cancel = dialogView.findViewById(R.id.btn_close);
+        TextView okay = dialogView.findViewById(R.id.btn_okay);
+        quantity = dialogView.findViewById(R.id.spQuantity);
+        radioGroup = dialogView.findViewById(R.id.radioGroup);
+        RecyclerView recyclerView = dialogView.findViewById(R.id.rv_pan);
+
+
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         adapter = new RvPanAdapter(pizzaList, this);
         recyclerView.setAdapter(adapter);
         builder.setView(dialogView);
@@ -60,12 +80,32 @@ public class AddCustomerFragment extends Fragment implements PizzaListener {
             adapter.notifyDataSetChanged();
         });
 
-        binding.btnPan.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                alertDialog.show();
+        binding.btnPan.setOnClickListener(view -> alertDialog.show());
 
+        cancel.setOnClickListener(view -> alertDialog.cancel());
+
+        okay.setOnClickListener(view -> {
+            String strItem = itemSelectName.getText().toString();
+            if (TextUtils.isEmpty(strItem)) {
+                Toast.makeText(getContext(), "Select your Item", Toast.LENGTH_SHORT).show();
+                return;
             }
+            String strQuantity = quantity.getSelectedItem().toString();
+            int intQuantity = Integer.parseInt(strQuantity);
+            int radioId = radioGroup.getCheckedRadioButtonId();
+            radioButton = dialogView.findViewById(radioId);
+
+            if (radioButton.getText().equals("Personal")) {
+                price = intQuantity * clickedItem.getPersonalPrice();
+            } else if (radioButton.getText().equals("Medium")) {
+                price = intQuantity * clickedItem.getMediumPrice();
+            } else if (radioButton.getText().equals("Family")) {
+                price = intQuantity * clickedItem.getFamilyPrice();
+            }
+            Toast.makeText(getContext(), "" + price, Toast.LENGTH_SHORT).show();
+            finalPrice = finalPrice + price;
+            binding.tvPrice.setText(String.valueOf(finalPrice));
+            alertDialog.cancel();
         });
 
         return binding.getRoot();
@@ -73,6 +113,9 @@ public class AddCustomerFragment extends Fragment implements PizzaListener {
 
     @Override
     public void actionListener(Pan pan) {
-
+        clickedItem = pan;
+        itemSelectName.setText(clickedItem.getItemName());
     }
+
+
 }
