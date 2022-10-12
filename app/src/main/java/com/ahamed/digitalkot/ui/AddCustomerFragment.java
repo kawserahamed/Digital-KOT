@@ -36,11 +36,12 @@ public class AddCustomerFragment extends Fragment implements PizzaListener {
     private RvPanAdapter adapter;
     private TextView itemSelectName;
     private Pan clickedItem;
-    private Spinner quantity;
+    private Spinner spinner;
     private RadioGroup radioGroup;
     private RadioButton radioButton;
     private int price;
-    private int finalPrice = 000;
+    private int finalPrice = 0;
+    private RecyclerView recyclerView;
 
 
     public AddCustomerFragment() {
@@ -61,16 +62,16 @@ public class AddCustomerFragment extends Fragment implements PizzaListener {
         itemSelectName = dialogView.findViewById(R.id.tv_selected_item);
         TextView cancel = dialogView.findViewById(R.id.btn_close);
         TextView okay = dialogView.findViewById(R.id.btn_okay);
-        quantity = dialogView.findViewById(R.id.spQuantity);
+        spinner = dialogView.findViewById(R.id.spQuantity);
         radioGroup = dialogView.findViewById(R.id.radioGroup);
-        RecyclerView recyclerView = dialogView.findViewById(R.id.rv_pan);
-
+        recyclerView = dialogView.findViewById(R.id.rv_pan);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        adapter = new RvPanAdapter(pizzaList, this);
-        recyclerView.setAdapter(adapter);
         builder.setView(dialogView);
         alertDialog = builder.create();
+
+        adapter = new RvPanAdapter(pizzaList, this);
+        recyclerView.setAdapter(adapter);
 
         PanViewModel viewModel = new ViewModelProvider(requireActivity()).get(PanViewModel.class);
         viewModel.getAllPanPizza().observe(getViewLifecycleOwner(), pans -> {
@@ -85,12 +86,13 @@ public class AddCustomerFragment extends Fragment implements PizzaListener {
         cancel.setOnClickListener(view -> alertDialog.cancel());
 
         okay.setOnClickListener(view -> {
+
             String strItem = itemSelectName.getText().toString();
             if (TextUtils.isEmpty(strItem)) {
                 Toast.makeText(getContext(), "Select your Item", Toast.LENGTH_SHORT).show();
                 return;
             }
-            String strQuantity = quantity.getSelectedItem().toString();
+            String strQuantity = spinner.getSelectedItem().toString();
             int intQuantity = Integer.parseInt(strQuantity);
             int radioId = radioGroup.getCheckedRadioButtonId();
             radioButton = dialogView.findViewById(radioId);
@@ -106,6 +108,11 @@ public class AddCustomerFragment extends Fragment implements PizzaListener {
             finalPrice = finalPrice + price;
             binding.tvPrice.setText(String.valueOf(finalPrice));
             alertDialog.cancel();
+            radioGroup.check(R.id.rMedium);
+            spinner.setSelection(0);
+            itemSelectName.setText(null);
+            recyclerView.scrollToPosition(0);
+
         });
 
         return binding.getRoot();
@@ -116,6 +123,4 @@ public class AddCustomerFragment extends Fragment implements PizzaListener {
         clickedItem = pan;
         itemSelectName.setText(clickedItem.getItemName());
     }
-
-
 }

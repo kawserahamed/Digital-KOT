@@ -9,7 +9,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
         android:theme="@style/Theme.Material3.Light.Dialog.Alert">
 
@@ -78,7 +78,7 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_pan"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="400dp"
             android:layout_marginTop="5dp" />
 
         <LinearLayout
